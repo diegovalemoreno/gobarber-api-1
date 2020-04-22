@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import multer from 'multer';
+import swaggerUi from 'swagger-ui-express';
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
@@ -10,10 +11,12 @@ import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
 import authMiddleware from './app/middlewares/auth';
 import multerConfig from './config/multer';
+import swaggerDocument from './swagger.json';
 
 const routes = new Router();
 const upload = multer(multerConfig);
-
+routes.use('/api-docs', swaggerUi.serve);
+routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
