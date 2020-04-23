@@ -9,8 +9,6 @@ var _express = require("express");
 
 var _multer = _interopRequireDefault(require("multer"));
 
-var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
-
 var _UserController = _interopRequireDefault(require("./app/controllers/UserController"));
 
 var _SessionController = _interopRequireDefault(require("./app/controllers/SessionController"));
@@ -31,14 +29,14 @@ var _auth = _interopRequireDefault(require("./app/middlewares/auth"));
 
 var _multer2 = _interopRequireDefault(require("./config/multer"));
 
-var _swagger = _interopRequireDefault(require("./swagger.json"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import swaggerUi from 'swagger-ui-express';
+// import swaggerDocument from './swagger.json';
 const routes = new _express.Router();
-const upload = (0, _multer.default)(_multer2.default);
-routes.use('/api-docs', _swaggerUiExpress.default.serve);
-routes.get('/api-docs', _swaggerUiExpress.default.setup(_swagger.default));
+const upload = (0, _multer.default)(_multer2.default); // routes.use('/api-docs', swaggerUi.serve);
+// routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
+
 routes.post('/users', _UserController.default.store);
 routes.post('/sessions', _SessionController.default.store); // Todas as rotas que forem chamadas a partir daqui tem que ser autenticada
 
