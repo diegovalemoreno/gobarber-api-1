@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/config/auth.js"],"names":["secret","process","env","APP_SECRET","expireIn"],"mappings":";;;;;;eAAe;AACbA,EAAAA,MAAM,EAAEC,OAAO,CAACC,GAAR,CAAYC,UADP;AAEbC,EAAAA,QAAQ,EAAE;AAFG,C","sourcesContent":["export default {\n  secret: process.env.APP_SECRET,\n  expireIn: '7d',\n};\n"],"file":"auth.js"}

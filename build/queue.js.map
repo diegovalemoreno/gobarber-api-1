@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/queue.js"],"names":["require","Queue","processQueue"],"mappings":";;AAAAA,OAAO,CAAC,eAAD,CAAP;;AAEA,MAAMC,KAAK,GAAGD,OAAO,CAAC,aAAD,CAArB;;AAEAC,KAAK,CAACC,YAAN","sourcesContent":["require('dotenv/config');\n\nconst Queue = require('./lib/Queue');\n\nQueue.processQueue();\n"],"file":"queue.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/config/sentry.js"],"names":["dsn","process","env","SENTRY_DSN"],"mappings":";;;;;;eAAe;AACbA,EAAAA,GAAG,EAAEC,OAAO,CAACC,GAAR,CAAYC;AADJ,C","sourcesContent":["export default {\n  dsn: process.env.SENTRY_DSN,\n};\n"],"file":"sentry.js"}

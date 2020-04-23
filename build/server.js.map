@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/server.js"],"names":["app","listen"],"mappings":";;AAAA;;;;AAEAA,aAAIC,MAAJ,CAAW,IAAX","sourcesContent":["import app from './app';\n\napp.listen(3333);\n"],"file":"server.js"}
