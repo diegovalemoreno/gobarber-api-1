@@ -1,3 +1,4 @@
+require 'pakyow-rake'
 namespace :db do
   desc "Create and migrate the database"
   task :setup do
