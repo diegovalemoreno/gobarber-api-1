@@ -15,7 +15,7 @@ Utilizando o [multer](https://github.com/expressjs/multer) para upload de arquiv
 
 Quando precisa enviar imagem para o servidor, tem que ser como `Multpart-data` (Multpart Form) e não `json`.
 
-Instalando o `multer`: 
+Instalando o `multer`:
 
 ```
 yarn add multer
@@ -62,7 +62,7 @@ A rota tem que usar o método post, e o corpo da requisição tem que ser um `mu
 
 Depois adicionar um atributo `file` e adicionar o arquivo nesse atributo.
 
-`upload.single('file')` significa que vou enviar apenas um arquivo dentro da propriedade `file`. 
+`upload.single('file')` significa que vou enviar apenas um arquivo dentro da propriedade `file`.
 
 Essa lib multer permite envio de multiplos arquivos.
 
@@ -139,7 +139,7 @@ module.exports = {
 E para gerar a tabela files no banco de dados conforme a migration, só executar no terminal:
 
 ```
-yarn sequelize db:migrate  
+yarn sequelize db:migrate
 ```
 
 Depois criar o Model File:
@@ -166,7 +166,7 @@ class File extends Model {
 export default File;
 ```
 
-E inserir o Model File no arquivo database/index.js 
+E inserir o Model File no arquivo database/index.js
 
 
 ```
@@ -303,7 +303,7 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula22](https://github.com/tgma
 	- `parseISO` transforma `"2019-10-01T18:00:00-04:00"` em Objeto data do JS
 	- `startOfHour` despreza os minutos e segundos, e retorna apenas da hora. 18h35 fica apenas 18h.
 	- `isBefore(x,y)` verifica se a data do primeiro parametro é anterior a do segundo parametro
-- Não permitir agendamento duplicado para o o prestador na mesma hora.	
+- Não permitir agendamento duplicado para o o prestador na mesma hora.
 
 Fim: [https://github.com/tgmarinho/gobarber/tree/aula23](https://github.com/tgmarinho/gobarber/tree/aula23)
 
@@ -362,7 +362,7 @@ Pronto, como tenho poucos registros, então se eu colocar page: 1, já trás tod
 
 Fim: [https://github.com/tgmarinho/gobarber/tree/aula25](https://github.com/tgmarinho/gobarber/tree/aula25)
 
-## Aula 26 - Listando agenda do prestador 
+## Aula 26 - Listando agenda do prestador
 
 - Mostar no painel do prestador de serviço a listagem de sua agenda
 - Criar uma nova rota para agenda do provider (schedule)
@@ -481,7 +481,7 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula27](https://github.com/tgma
 
 - Criar os schemas do mongo, semelhante ao model das tabelas.
 
-- MongoDB tem Schema Free, um registro na Collection pode ter um campo e outro registro não ter o campo, isso difere das Tabelas, pois se um registro não tem um certo atributo, ele deve ter o campo com o valor `null`, e no mongo, o campo/registro nem precista existir. Por isso é Schema Free e se chama NOSQL, não tem estrutura. E no mongo também não tem as migrations. 
+- MongoDB tem Schema Free, um registro na Collection pode ter um campo e outro registro não ter o campo, isso difere das Tabelas, pois se um registro não tem um certo atributo, ele deve ter o campo com o valor `null`, e no mongo, o campo/registro nem precista existir. Por isso é Schema Free e se chama NOSQL, não tem estrutura. E no mongo também não tem as migrations.
 - As notificações não tem muita estrutura, ela armazena o ID do usuário, e as notificações não precisam se relacionar, nem precisa haver consultas com essa coleção (entidade).
 
 - Criando o Schema de Notification:
@@ -621,7 +621,7 @@ Entendendo a query:
 - `req.params.id` = é o id do registro no mongo que foi passado como parametro na query de consulta no frontend
  -  `{ read: true }`  é o valor que eu quero alterar, sempre por default é falso o valor registrado, e agora quero alterar para true, pois foi lida.
  - `{ new:  true }` retorno para o usuário a notificação para dentro de const  notification atualizado
- 
+
 
 #### Leandro VieiraToday at 2:42 PM
 
@@ -744,7 +744,7 @@ class Mail {
 export default new Mail();
 ```
 
-Por fim utilizar no controller: 
+Por fim utilizar no controller:
 
 ```
 ...
@@ -776,7 +776,7 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula32](https://github.com/tgma
 
 ## Aula 33 - Configurando templates de email
 
-- Criar templates de email, com html, css, 
+- Criar templates de email, com html, css,
 - Utilizar template engine: [https://handlebarsjs.com/](https://handlebarsjs.com/)
 - Instalar libs para utilizar o handlebars:
 	- `yarn add express-handlebars nodemailer-express-handlebars`
@@ -944,14 +944,14 @@ import Queue from  './lib/Queue';
 Queue.processQueue();
 ```
 
-Criar um script no package.json para rodar com sucrase uma vez que estamos utilizando o import/export: 
+Criar um script no package.json para rodar com sucrase uma vez que estamos utilizando o import/export:
 
 ```
 "queue":  "nodemon src/queue.js"
 ```
 
 E para executar só chamar: `yarn queue``
- 
+
 Para testar só tentar cancelar um appointment novamente.
 
 
@@ -960,7 +960,7 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula34](https://github.com/tgma
 
 ## Aula 35 - Monitorando falhas na fila
 
-Para poder ouvir os erros do processamento de jobs e obter um log, só alterar o código: 
+Para poder ouvir os erros do processamento de jobs e obter um log, só alterar o código:
 
 ```
 processQueue() {
@@ -1071,7 +1071,7 @@ Só vai retornar os horários que não tem appointment marcado e que o valor des
 
 Recebo da requisição o ID do prestador e o dia que o usuário quer ver os horários disponíveis.
 
-Essa data vem como timestamp e formato de string do componente datepicker do frontend. Então é preciso transformar um Number. 
+Essa data vem como timestamp e formato de string do componente datepicker do frontend. Então é preciso transformar um Number.
 
 Depois busco todos agendamentos do provider informado pelo parâmetro da requisição, que não estejam cancelados, e que a data seja entre a primeira e última hora do dia informado.
 
@@ -1166,19 +1166,19 @@ Vamos fazer o tratamento de exceções que ocorrem em produção, na fila de env
 
 Ver logs de erro no servidor é muito complicado, chato e trabalhoso, vamos utilizar uma ferramenta mais amigável com uma boa UI que fica fácil de descobrir o erro, dessa forma não vamos correr atrás do erro, o erro vem até nós.
 
-Tem duas ferramentas para ajudar com isso: 
+Tem duas ferramentas para ajudar com isso:
 
 - [https://www.bugsnag.com/](https://www.bugsnag.com/)
 - [https://sentry.io/welcome/](https://sentry.io/welcome/)
 
-Vamos utilizar o sentry, pois tem uma integração muito boa com nodejs, a vantagem de usar essa ferramenta é que a cada exceção que ocorre na aplicação, vamos receber uma mensagem no sentry.io, um email ou podemos até integrarar com slack para receber mensagem em algum canal do grupo do projeto e até mesmo criar uma issue automática no github. 
+Vamos utilizar o sentry, pois tem uma integração muito boa com nodejs, a vantagem de usar essa ferramenta é que a cada exceção que ocorre na aplicação, vamos receber uma mensagem no sentry.io, um email ou podemos até integrarar com slack para receber mensagem em algum canal do grupo do projeto e até mesmo criar uma issue automática no github.
 
 - Primeiro passo é criar a conta no [https://sentry.io/](https://sentry.io/).
 - Configurar o projeto como Express ou Node, como estou usando express é melhor selecionar o Node.
 - Depois instalar a dependência no projeto:
-``` 
+```
 yarn add @sentry/node
-``` 
+```
 e instalar o [https://www.npmjs.com/package/express-async-errors](https://www.npmjs.com/package/express-async-errors) se faz necessário por que os métodos que são executados com async de dentro do controllers, o express não consegue captar as exceções e enviar para o Sentry, então baixando e configurando essa extensão vai dar certo.
 
 ```
@@ -1260,7 +1260,7 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula38](https://github.com/tgma
 
 Criar variáveis de ambiente para proteger os dados sensíveis e permitir que variáveis sejam configuradas para cada ambiente que a aplicação está rodando.
 
-Vamos criar um arquivo `.env` e um `.env.example` o .env nunca deverá ser commitado, ele é particular de seu ambiente, o .env.example como nome sugere é um exemplo das variáveis que devem ser preenchidas. 
+Vamos criar um arquivo `.env` e um `.env.example` o .env nunca deverá ser commitado, ele é particular de seu ambiente, o .env.example como nome sugere é um exemplo das variáveis que devem ser preenchidas.
 Elas estão sendo usadas em vários arquivos da aplicação. Os dados que não são sensíveis podem manter no .env.example.
 
 Para utilizar temos que instalar uma lib  [dotenv](https://github.com/motdotla/dotenv) que serve para carregar as variáves de dentro do `.env` para o `nodejs`, no `process.env`.
@@ -1345,3 +1345,4 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula39](https://github.com/tgma
 
 
 Chegamos ao final da aplicação =)
+Para rodar as migration em ambiente do heroku heroku run rake db:migrate --app gobarber-backend-app
