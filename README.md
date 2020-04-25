@@ -1345,4 +1345,5 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula39](https://github.com/tgma
 
 
 Chegamos ao final da aplicação =)
-Para rodar as migration em ambiente do heroku heroku run rake db:migrate --app gobarber-backend-app
+Para rodar as migration em ambiente do heroku
+heroku run sequelize db:migrate --app gobarber-backend-app  e
